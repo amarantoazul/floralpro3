@@ -1,0 +1,40 @@
+ (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
+diff --git a/package.json b/package.json
+new file mode 100644
+index 0000000000000000000000000000000000000000..8c3bd9186ae2df5ea7322cb04428cac08566c290
+--- /dev/null
++++ b/package.json
+@@ -0,0 +1,29 @@
++{
++  "name": "floralpro3",
++  "version": "0.1.0",
++  "private": true,
++  "scripts": {
++    "dev": "next dev",
++    "build": "next build",
++    "start": "next start",
++    "lint": "next lint"
++  },
++  "dependencies": {
++    "@supabase/supabase-js": "^2.45.0",
++    "next": "14.1.0",
++    "react": "18.2.0",
++    "react-dom": "18.2.0",
++    "framer-motion": "^11.0.3"
++  },
++  "devDependencies": {
++    "@types/node": "20.11.30",
++    "@types/react": "18.2.69",
++    "@types/react-dom": "18.2.22",
++    "autoprefixer": "10.4.17",
++    "eslint": "8.57.0",
++    "eslint-config-next": "14.1.0",
++    "postcss": "8.4.35",
++    "tailwindcss": "3.4.1",
++    "typescript": "5.4.2"
++  }
++}
+\ No newline at end of file
+ 
+EOF
+)
