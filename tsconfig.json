@@ -1,0 +1,38 @@
+ (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
+diff --git a/tsconfig.json b/tsconfig.json
+new file mode 100644
+index 0000000000000000000000000000000000000000..6a2ccd846a9756a62d5ee41422cac1c4dba57ad3
+--- /dev/null
++++ b/tsconfig.json
+@@ -0,0 +1,28 @@
++{
++  "compilerOptions": {
++    "target": "es5",
++    "lib": ["dom", "dom.iterable", "esnext"],
++    "allowJs": true,
++    "skipLibCheck": true,
++    "strict": true,
++    "forceConsistentCasingInFileNames": true,
++    "noEmit": true,
++    "esModuleInterop": true,
++    "module": "esnext",
++    "moduleResolution": "bundler",
++    "resolveJsonModule": true,
++    "isolatedModules": true,
++    "jsx": "preserve",
++    "incremental": true,
++    "paths": {
++      "@/*": ["./src/*"]
++    },
++    "plugins": [
++      {
++        "name": "next"
++      }
++    ]
++  },
++  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.cjs", "**/*.mjs"],
++  "exclude": ["node_modules"]
++}
+ 
+EOF
+)
