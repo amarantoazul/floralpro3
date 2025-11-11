@@ -1,42 +1,28 @@
- (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
-diff --git a/src/components/Navbar.tsx b/src/components/Navbar.tsx
-new file mode 100644
-index 0000000000000000000000000000000000000000..29932f0a1639fd156bcbffd2a32620067a1225a3
---- /dev/null
-+++ b/src/components/Navbar.tsx
-@@ -0,0 +1,32 @@
-+import Link from "next/link";
-+
-+const links = [
-+  { href: "#features", label: "Features" },
-+  { href: "#pricing", label: "Pricing" },
-+  { href: "#demo", label: "Demo" }
-+];
-+
-+export function Navbar() {
-+  return (
-+    <header className="sticky top-0 z-20 bg-white/80 backdrop-blur">
-+      <div className="container mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-+        <Link href="/" className="text-xl font-bold text-brand-700">
-+          FloralPro3
-+        </Link>
-+        <nav className="hidden items-center gap-6 text-sm font-semibold text-slate-700 md:flex">
-+          {links.map((link) => (
-+            <Link key={link.href} href={link.href} className="transition hover:text-brand-600">
-+              {link.label}
-+            </Link>
-+          ))}
-+        </nav>
-+        <Link
-+          href="#pricing"
-+          className="rounded-full bg-brand-600 px-4 py-2 text-sm font-semibold text-white shadow-md transition hover:bg-brand-700"
-+        >
-+          Request access
-+        </Link>
-+      </div>
-+    </header>
-+  );
-+}
- 
-EOF
-)
+"use client";
+
+import Link from "next/link";
+
+export function Navbar() {
+  return (
+    <header className="sticky top-0 z-20 border-b border-pink-100 bg-pink-50/90 backdrop-blur">
+      <div className="container flex items-center justify-between py-4">
+        <Link
+          href="/"
+          className="flex items-center gap-2 text-lg font-semibold text-pink-600"
+        >
+          <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white text-base font-bold text-pink-500 shadow-sm shadow-pink-100">
+            FP
+          </span>
+          FloralPro3
+        </Link>
+
+        {/* 👇 Aquí el cambio importante */}
+        <Link href={{ pathname: "/login" }}>
+          <span className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-pink-300 via-pink-400 to-pink-500 px-5 py-2 text-sm font-medium text-white shadow-lg shadow-pink-200 transition hover:scale-[1.02] cursor-pointer">
+            Iniciar sesión
+          </span>
+        </Link>
+      </div>
+    </header>
+  );
+}

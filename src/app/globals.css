@@ -1,32 +1,44 @@
- (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
-diff --git a/src/app/globals.css b/src/app/globals.css
-new file mode 100644
-index 0000000000000000000000000000000000000000..852eba2777d0d004418f59e17521a5d6172ea46a
---- /dev/null
-+++ b/src/app/globals.css
-@@ -0,0 +1,22 @@
-+@tailwind base;
-+@tailwind components;
-+@tailwind utilities;
-+
-+:root {
-+  color-scheme: light;
-+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-+}
-+
-+body {
-+  @apply bg-brand-50 text-slate-900;
-+}
-+
-+main {
-+  @apply min-h-screen;
-+}
-+
-+@layer base {
-+  .container {
-+    @apply mx-auto px-4;
-+  }
-+}
- 
-EOF
-)
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =======================
+   Variables globales
+======================= */
+:root {
+  color-scheme: light;
+  --font-inter: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* =======================
+   Estilo general
+======================= */
+body {
+  font-family: var(--font-inter);
+  @apply bg-pink-50 text-slate-900 antialiased;
+}
+
+/* =======================
+   Layout
+======================= */
+.container {
+  @apply mx-auto w-full max-w-6xl px-6;
+}
+
+/* =======================
+   Enlaces
+======================= */
+a {
+  @apply text-pink-500 hover:text-pink-600 transition;
+}
+
+/* =======================
+   Tipografía
+======================= */
+h1, h2, h3, h4, h5 {
+  @apply font-semibold text-slate-900;
+}
+
+p {
+  @apply text-slate-700 leading-relaxed;
+}

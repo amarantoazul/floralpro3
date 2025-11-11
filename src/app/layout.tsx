@@ -1,44 +1,43 @@
- (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
-diff --git a/src/app/layout.tsx b/src/app/layout.tsx
-new file mode 100644
-index 0000000000000000000000000000000000000000..a72ed7b7d92c14e6cd5f80868861e50deedec270
---- /dev/null
-+++ b/src/app/layout.tsx
-@@ -0,0 +1,34 @@
-+import type { Metadata } from "next";
-+import "./globals.css";
-+
-+export const metadata: Metadata = {
-+  title: "FloralPro3",
-+  description: "Premium floral experiences powered by Supabase",
-+  metadataBase: new URL("https://floralpro3.example.com"),
-+  openGraph: {
-+    title: "FloralPro3",
-+    description: "Premium floral experiences powered by Supabase",
-+    images: [
-+      {
-+        url: "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1200&q=80",
-+        width: 1200,
-+        height: 630,
-+        alt: "Floral arrangement"
-+      }
-+    ]
-+  }
-+};
-+
-+export default function RootLayout({
-+  children
-+}: {
-+  children: React.ReactNode;
-+}) {
-+  return (
-+    <html lang="en">
-+      <body className="bg-brand-50 antialiased">
-+        <main>{children}</main>
-+      </body>
-+    </html>
-+  );
-+}
- 
-EOF
-)
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter"
+});
+
+export const metadata: Metadata = {
+  title: "FloralPro3",
+  description:
+    "Conecta proveedores, floristas, productores y agentes en una plataforma floral moderna.",
+  metadataBase: new URL("https://floralpro3.example.com"),
+  openGraph: {
+    title: "FloralPro3",
+    description:
+      "Conecta proveedores, floristas, productores y agentes en una plataforma floral moderna.",
+    type: "website"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "FloralPro3",
+    description:
+      "Conecta proveedores, floristas, productores y agentes en una plataforma floral moderna."
+  }
+};
+
+export default function RootLayout({
+  children
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="es" className="bg-pink-50">
+      <body
+        className={`${inter.variable} bg-pink-50 text-slate-900 antialiased`}
+      >
+        {children}
+      </body>
+    </html>
+  );
+}
