@@ -1,56 +1,43 @@
-import { DashboardCard } from "@/components/DashboardCard";
-import { DashboardTopBar } from "@/components/DashboardTopBar";
+"use client";
+
 import { motion } from "framer-motion";
 
-const cards = [
-  {
-    icon: "🛒",
-    title: "Pedidos en curso",
-    value: "18",
-    caption: "Solicitudes en seguimiento activo",
-    accent: "bg-blossom-100"
-  },
-  {
-    icon: "💐",
-    title: "Favoritos",
-    value: "24",
-    caption: "Variedades destacadas por tus clientes",
-    accent: "bg-blossom-200"
-  },
-  {
-    icon: "💡",
-    title: "Sugerencias",
-    value: "5",
-    caption: "Ideas de bundles listos para publicar",
-    accent: "bg-blossom-100"
-  }
-];
-
 export default function FloreriaDashboardPage() {
+  const cards = [
+    { emoji: "🌷", title: "Pedidos activos", value: "12", caption: "Pedidos en proceso" },
+    { emoji: "📦", title: "Inventario", value: "340", caption: "Tallos disponibles" },
+    { emoji: "💰", title: "Ventas hoy", value: "$1,230", caption: "Últimas 24 horas" },
+  ];
+
   return (
-    <div className="flex min-h-screen flex-col">
-      <DashboardTopBar />
-      <motion.main
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="container flex flex-1 flex-col gap-8 py-10"
-      >
-        <header className="space-y-2">
-          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-blossom-300">
-            Dashboard florería
-          </p>
-          <h1 className="text-3xl font-semibold">Pedidos y catálogo al alcance</h1>
-          <p className="text-sm text-slate-600">
-            Visualiza tus productos estrella y pedidos prioritarios desde tu celular.
-          </p>
-        </header>
-        <div className="grid gap-4 sm:grid-cols-2">
-          {cards.map((card) => (
-            <DashboardCard key={card.title} {...card} />
-          ))}
-        </div>
-      </motion.main>
-    </div>
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4 }}
+      className="space-y-6"
+    >
+      <header>
+        <h1 className="text-3xl font-semibold text-blossom-500">
+          Panel de Florería 🌸
+        </h1>
+        <p className="text-slate-600">
+          Administra tus pedidos, clientes y productos en tiempo real.
+        </p>
+      </header>
+
+      <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {cards.map((card) => (
+          <div
+            key={card.title}
+            className="rounded-3xl bg-white shadow-md border border-blossom-100 p-6 hover:shadow-lg transition"
+          >
+            <div className="text-4xl">{card.emoji}</div>
+            <h2 className="text-lg font-semibold text-slate-800 mt-2">{card.title}</h2>
+            <p className="text-2xl font-bold text-blossom-500">{card.value}</p>
+            <p className="text-sm text-slate-500">{card.caption}</p>
+          </div>
+        ))}
+      </section>
+    </motion.div>
   );
 }

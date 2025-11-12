@@ -3,34 +3,34 @@ import { motion } from "framer-motion";
 import { DashboardCard } from "@/components/DashboardCard";
 import { DashboardTopBar } from "@/components/DashboardTopBar";
 
-export default function AgenteDashboardPage() {
+export default function ProductorDashboardPage() {
   const cards = [
     {
-      icon: "📋",
-      title: "Pedidos activos",
-      value: "9",
-      caption: "Órdenes en seguimiento",
+      icon: "🌱",
+      title: "Cosechas activas",
+      value: "8",
+      caption: "Producción en curso esta semana",
       accent: "bg-blossom-100",
     },
     {
-      icon: "💬",
-      title: "Negociaciones abiertas",
-      value: "4",
-      caption: "Conversaciones con proveedores",
+      icon: "📦",
+      title: "Pedidos pendientes",
+      value: "5",
+      caption: "Solicitudes de proveedores y agentes",
       accent: "bg-blossom-200",
     },
     {
-      icon: "📆",
-      title: "Eventos de la semana",
-      value: "5",
-      caption: "Entregas y coordinaciones próximas",
+      icon: "📊",
+      title: "Tallos disponibles",
+      value: "2,450",
+      caption: "Inventario total actualizado",
       accent: "bg-blossom-100",
     },
     {
-      icon: "💰",
-      title: "Rentabilidad mensual",
-      value: "+18%",
-      caption: "Comparado con el mes anterior",
+      icon: "🌸",
+      title: "Calidad promedio",
+      value: "94%",
+      caption: "Porcentaje de flores grado Premium",
       accent: "bg-blossom-200",
     },
   ];
@@ -46,11 +46,11 @@ export default function AgenteDashboardPage() {
       >
         <header className="space-y-2">
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-blossom-300">
-            Dashboard Agente
+            Dashboard Productor
           </p>
-          <h1 className="text-3xl font-semibold">Gestión integral de clientes</h1>
+          <h1 className="text-3xl font-semibold">Controla tu producción floral</h1>
           <p className="text-sm text-slate-600">
-            Supervisa pedidos, listados y acuerdos desde tu panel.
+            Supervisa cosechas, pedidos y calidad de tu producción.
           </p>
         </header>
 
