@@ -1,33 +1,45 @@
+"use client";
+
+import { motion } from "framer-motion";
+
 export function Hero() {
   return (
-    <section className="container flex flex-1 flex-col items-center justify-center gap-6 py-12 px-4 text-center md:py-20">
-      <span className="rounded-full bg-white/80 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-pink-500 shadow-sm shadow-pink-100">
+    <motion.section
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      viewport={{ once: true }}
+      className="container flex flex-1 flex-col items-center justify-center gap-8 py-12 text-center sm:py-16"
+    >
+      <span className="floating-card inline-flex items-center gap-2 rounded-full px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-blossom-400">
         Plataforma SaaS floral
       </span>
-      <div className="space-y-3">
-        <h1 className="text-3xl font-semibold leading-snug text-slate-900 md:text-5xl">
+
+      <div className="space-y-4">
+        <h1 className="text-[1.9rem] leading-tight text-slate-900 sm:text-4xl md:text-5xl font-semibold">
           El ecosistema inteligente para la cadena floral en Latinoamérica
         </h1>
-        <p className="text-sm text-slate-600 md:text-lg">
-          FloralPro3 simplifica la colaboración entre proveedores, floristerías,
-          productores y agentes con herramientas móviles, intuitivas y listas
-          para tu equipo.
+        <p className="mx-auto max-w-2xl text-sm sm:text-base text-slate-600 leading-relaxed">
+          FloralPro3 sincroniza pedidos, inventarios y relaciones comerciales
+          en una experiencia móvil pensada para equipos que necesitan velocidad
+          y claridad.
         </p>
       </div>
-      <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
+
+      <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:gap-4 mt-4">
         <a
-          className="inline-flex items-center justify-center rounded-full bg-pink-500 px-5 py-3 text-sm font-semibold text-white shadow-md shadow-pink-200 transition hover:bg-pink-400"
           href="#roles"
+          className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-blossom-200 via-blossom-300 to-blossom-400 px-6 py-3 text-sm font-semibold text-white shadow-soft transition hover:scale-[1.03]"
         >
           Conoce los roles
         </a>
         <a
-          className="inline-flex items-center justify-center rounded-full border border-pink-200 bg-white/80 px-5 py-3 text-sm font-semibold text-pink-500 shadow-sm shadow-pink-100 transition hover:border-pink-300 hover:text-pink-600"
           href="mailto:hola@floralpro3.com"
+          className="inline-flex items-center justify-center rounded-full border border-blossom-200 bg-white/80 px-6 py-3 text-sm font-semibold text-blossom-400 shadow-md shadow-pink-100/70 transition hover:border-blossom-300 hover:text-blossom-500"
         >
           Agenda una charla
         </a>
       </div>
-    </section>
+    </motion.section>
   );
 }

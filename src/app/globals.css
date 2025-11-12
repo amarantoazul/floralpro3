@@ -18,27 +18,42 @@ body {
   @apply bg-pink-50 text-slate-900 antialiased;
 }
 
+main {
+  @apply bg-gradient-to-b from-white via-white to-blossom-50/40;
+}
+
 /* =======================
    Layout
 ======================= */
 .container {
-  @apply mx-auto w-full max-w-6xl px-6;
+  @apply mx-auto w-full max-w-xl px-5 sm:px-6 lg:max-w-5xl;
 }
 
 /* =======================
    Enlaces
 ======================= */
 a {
-  @apply text-pink-500 hover:text-pink-600 transition;
+  @apply text-blossom-400 transition hover:text-blossom-500;
 }
 
 /* =======================
    Tipografía
 ======================= */
-h1, h2, h3, h4, h5 {
+h1,
+h2,
+h3,
+h4,
+h5 {
   @apply font-semibold text-slate-900;
 }
 
 p {
-  @apply text-slate-700 leading-relaxed;
+  @apply text-slate-600 leading-relaxed;
+}
+
+/* =======================
+   Tarjetas flotantes
+======================= */
+.floating-card {
+  @apply rounded-3xl bg-white/90 shadow-md shadow-pink-100/60 ring-1 ring-white/60 backdrop-blur;
 }

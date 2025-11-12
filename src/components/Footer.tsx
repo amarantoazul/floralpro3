@@ -2,17 +2,22 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-pink-100 bg-pink-50/80">
-      <div className="container flex flex-col items-center justify-between gap-4 py-6 text-center text-sm text-slate-500 sm:flex-row">
-        <p>&copy; {year} FloralPro3. Todos los derechos reservados.</p>
-        <div className="flex items-center gap-4">
+    <footer className="mt-12 border-t border-white/70 bg-white/60 backdrop-blur-sm">
+      <div className="container flex flex-col items-center justify-between gap-3 py-6 text-center text-xs text-slate-500 sm:flex-row sm:text-sm">
+        <p className="font-medium text-slate-400">
+          &copy; {year} <span className="text-blossom-400 font-semibold">FloralPro3</span>. Todos los derechos reservados.
+        </p>
+        <div className="flex items-center gap-5">
           <a
-            className="transition hover:text-pink-500"
             href="mailto:hola@floralpro3.com"
+            className="font-medium transition hover:text-blossom-400"
           >
             Contacto
           </a>
-          <a className="transition hover:text-pink-500" href="#roles">
+          <a
+            href="#roles"
+            className="font-medium transition hover:text-blossom-400"
+          >
             Roles
           </a>
         </div>

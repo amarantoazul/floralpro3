@@ -1,28 +1,36 @@
 "use client";
 
+import { motion } from "framer-motion";
 import Link from "next/link";
 
 export function Navbar() {
   return (
-    <header className="sticky top-0 z-20 border-b border-pink-100 bg-pink-50/90 backdrop-blur">
+    <motion.header
+      initial={{ y: -40, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ type: "spring", stiffness: 150, damping: 20 }}
+      className="sticky top-0 z-20 w-full border-b border-white/60 bg-white/80 backdrop-blur-sm"
+    >
       <div className="container flex items-center justify-between py-4">
+        {/* Logo */}
         <Link
           href="/"
-          className="flex items-center gap-2 text-lg font-semibold text-pink-600"
+          className="flex items-center gap-3 text-base font-semibold text-slate-900"
         >
-          <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white text-base font-bold text-pink-500 shadow-sm shadow-pink-100">
+          <span className="inline-flex h-9 w-9 items-center justify-center rounded-2xl bg-gradient-to-br from-blossom-100 via-blossom-200 to-blossom-300 text-base font-bold text-blossom-500 shadow-sm shadow-pink-100/60">
             FP
           </span>
           FloralPro3
         </Link>
 
-        {/* 👇 Aquí el cambio importante */}
-        <Link href={{ pathname: "/login" }}>
-          <span className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-pink-300 via-pink-400 to-pink-500 px-5 py-2 text-sm font-medium text-white shadow-lg shadow-pink-200 transition hover:scale-[1.02] cursor-pointer">
-            Iniciar sesión
-          </span>
+        {/* Botón de inicio de sesión */}
+        <Link
+          href="/login"
+          className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-blossom-200 via-blossom-300 to-blossom-400 px-5 py-2 text-sm font-semibold text-white shadow-soft transition hover:scale-[1.03]"
+        >
+          Iniciar sesión
         </Link>
       </div>
-    </header>
+    </motion.header>
   );
 }

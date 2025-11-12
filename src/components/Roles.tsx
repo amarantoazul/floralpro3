@@ -1,52 +1,79 @@
+"use client";
+
+import { motion } from "framer-motion";
+
 const roles = [
   {
     title: "Proveedor",
     description:
       "Centraliza inventarios, catálogos y disponibilidad en tiempo real para tus clientes.",
     accent: "bg-blossom-100",
-    icon: "🌺"
+    icon: "🌺",
   },
   {
     title: "Florería",
     description:
       "Haz pedidos ágiles, gestiona entregas y obtén insights sobre tus productos estrella.",
     accent: "bg-blossom-200",
-    icon: "🌷"
+    icon: "🌷",
   },
   {
     title: "Productor",
     description:
       "Conecta tu producción con la demanda y anticipa necesidades con dashboards móviles.",
     accent: "bg-blossom-100",
-    icon: "🌻"
+    icon: "🌻",
   },
   {
     title: "Agente",
     description:
       "Coordina cadenas de suministro, contratos y logística desde un solo panel colaborativo.",
     accent: "bg-blossom-200",
-    icon: "🌼"
-  }
+    icon: "🌼",
+  },
 ];
 
 export function Roles() {
   return (
-    <section id="roles" className="bg-white/60 py-14">
+    <section
+      id="roles"
+      className="py-14 bg-gradient-to-b from-white via-white to-blossom-50/30"
+    >
       <div className="container space-y-10">
-        <div className="text-center">
-          <h2 className="text-2xl font-semibold text-slate-900 sm:text-3xl">
+        {/* Encabezado */}
+        <div className="text-center space-y-3">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.45 }}
+            className="text-2xl font-semibold text-slate-900 sm:text-3xl"
+          >
             Cuatro roles, una sola plataforma
-          </h2>
-          <p className="mt-3 text-sm text-slate-600 sm:text-base">
+          </motion.h2>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="mx-auto max-w-xl text-sm text-slate-600 sm:text-base"
+          >
             FloralPro3 potencia a cada actor de la cadena floral con herramientas
             móviles y colaborativas.
-          </p>
+          </motion.p>
         </div>
-        <div className="grid gap-6 sm:grid-cols-2">
-          {roles.map((role) => (
-            <article
+
+        {/* Grid de roles */}
+        <div className="grid gap-5 sm:grid-cols-2 md:gap-6">
+          {roles.map((role, index) => (
+            <motion.article
               key={role.title}
-              className="group rounded-3xl bg-white/80 p-6 shadow-lg shadow-pink-100/70 ring-1 ring-white/70 transition hover:-translate-y-1 hover:shadow-pink-200"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.45, delay: index * 0.08 }}
+              className="floating-card p-6 text-left hover:-translate-y-1 transition-transform"
             >
               <div className="flex items-center gap-4">
                 <span
@@ -61,7 +88,7 @@ export function Roles() {
               <p className="mt-4 text-sm leading-relaxed text-slate-600">
                 {role.description}
               </p>
-            </article>
+            </motion.article>
           ))}
         </div>
       </div>
